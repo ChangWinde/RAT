@@ -1,0 +1,36 @@
+name: rat2
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+  nvidia: https://conda.anaconda.org/nvidia
+dependencies:
+  - python=3.8
+  - pip=23.3.1
+  - cuda=11.8
+  - cudnn=8.6
+  - pytorch=2.4.1
+  - torchvision=0.19.1
+  - torchaudio=2.4.1
+  - numpy=1.24.4
+  - pip:
+    - gym==0.25.2
+    - wandb==0.19.5
+    - hydra-core==0.11.3
+    - mujoco==3.2.3
+    - mujoco-py==2.1.2.14
+    - tensorboard==2.14.0
+    - scipy==1.10.1
+    - pandas==2.0.3
+    - tqdm==4.67.1
+    - -e git+ssh://git@github.com/ChangWinde/RAT.git@e6cc19243d3ac18854b136b39448f843ebad9fd1#egg=dm_control&subdirectory=custom_dmcontrol
+    - -e git+ssh://git@github.com/ChangWinde/RAT.git@e6cc19243d3ac18854b136b39448f843ebad9fd1#egg=dmc2gym&subdirectory=custom_dmc2gym
+    - -e git+ssh://git@github.com/Farama-Foundation/Metaworld.git@04be337a12305e393c0caf0cbf5ec7755c7c8feb#egg=metaworld 

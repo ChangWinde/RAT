@@ -1,0 +1,76 @@
+defaults:
+  # attacker
+  - agent: sac_aua
+  - attacker: sac_attacker
+  - victim: sac
+    
+# this needs to be specified manually
+experiment: RAT
+tags: []
+enable_wandb: false
+
+# adversary attack
+alter_update_num: 10
+alter_frequency : 100
+outer_frequency : 3000
+inner_frequency : 100
+adv_eps: 0.1
+lam: 0
+Robust: None
+norm: 1
+
+# reward learning
+segment: 50
+activation: tanh
+num_seed_steps: 1000
+num_unsup_steps: 9000
+num_interact: 5000 # every num_interact
+reward_lr: 0.0003
+reward_batch: 128
+reward_update: 200
+feed_type: 1
+reset_update: 100
+topK: 5
+ensemble_size: 3
+max_feedback: 7000
+large_batch: 10
+label_margin: 0.0
+teacher_beta: -1
+teacher_gamma: 1
+teacher_eps_mistake: 0
+teacher_eps_skip: 0
+teacher_eps_equal: 0
+
+# scheduling
+reward_schedule: 0
+
+num_train_steps: 1e6
+replay_buffer_capacity: ${num_train_steps}
+
+# evaluation config
+eval_frequency: 10000
+num_eval_episodes: 10
+device: cuda
+
+# logger
+log_frequency: 10000
+log_save_tb: false
+
+# video recorder
+save_video: false
+
+# setups
+seed: 1
+
+# Environment
+env: dog_stand
+gradient_update: 1
+
+# hydra configuration
+hydra:
+  name: ${env}
+  run:
+    dir: ./exp/${experiment}/${env}/adv_eps${adv_eps}/seed${seed}
+
+# wandb
+run: ???

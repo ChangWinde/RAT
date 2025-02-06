@@ -1,0 +1,40 @@
+attacker:
+  name: sac_attacker
+  class: agent.sac_aua.AUASACAgent
+  params:
+    obs_dim: ??? # to be specified later
+    action_dim: ??? # to be specified later
+    action_range: ??? # to be specified later
+    device: ${device}
+    critic_cfg: ${attacker_double_q_critic}
+    actor_cfg: ${attacker_diag_gaussian_actor}
+    discount: 0.99
+    init_temperature: 0.1
+    alpha_lr: 1e-4
+    alpha_betas: [0.9, 0.999]
+    actor_lr: 3e-4
+    actor_betas: [0.9, 0.999]
+    actor_update_frequency: 1
+    critic_lr: 1e-4
+    critic_betas: [0.9, 0.999]
+    critic_tau: 0.005
+    critic_target_update_frequency: 2
+    batch_size: 2048 # 1024 for Walker, 512 for Meta-world
+    learnable_temperature: true
+    
+attacker_double_q_critic:
+  class: agent.critic.DoubleQCritic
+  params:
+    obs_dim: ${attacker.params.obs_dim}
+    action_dim: ${attacker.params.action_dim}
+    hidden_dim: 256
+    hidden_depth: 3
+    
+attacker_diag_gaussian_actor:
+  class: agent.actor.DiagGaussianActor
+  params:
+    obs_dim: ${attacker.params.obs_dim}
+    action_dim: ${attacker.params.action_dim}
+    hidden_dim: 256
+    hidden_depth: 3
+    log_std_bounds: [-5,-0.7]
