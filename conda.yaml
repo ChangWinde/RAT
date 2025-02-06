@@ -1,4 +1,4 @@
-name: rat2
+name: rat
 channels:
   - pytorch
   - nvidia
