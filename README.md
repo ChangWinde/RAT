@@ -108,10 +108,23 @@ If you find RAT useful in your research, please consider citing:
 
 ```bibtex
 @inproceedings{bai2025rat,
-  title={RAT: Adversarial Attacks on Deep Reinforcement Agents for Targeted Behaviors},
-  author={Fengshuo Bai, Runze Liu, Yali Du, Ying Wen, Yaodong Yang},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  year={2025}
+  title     = {{RAT}: Adversarial Attacks on Deep Reinforcement Agents for Targeted Behaviors},
+  author    = {Fengshuo Bai, Runze Liu, Yali Du, Ying Wen, Yaodong Yang},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  year      = {2025}
+}
+```
+
+Our previous research on PbRL:
+
+```bibtex
+@inproceedings{liu2022metarewardnet,
+  title     = {{Meta-Reward-Net}: Implicitly Differentiable Reward Learning for Preference-based Reinforcement Learning},
+  author    = {Runze Liu and Fengshuo Bai and Yali Du and Yaodong Yang},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {35},
+  pages     = {22270--22284},
+  year      = {2022}
 }
 ```
 
